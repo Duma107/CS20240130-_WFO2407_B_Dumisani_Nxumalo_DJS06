@@ -1,63 +1,121 @@
-### DJS06 Project Brief: Higher Order Functions
+# Project README
 
-#### Objective
-This project is designed to challenge and deepen your understanding of JavaScript's powerful array methods. You'll manipulate data using `forEach`, `map`, `filter`, `reduce`, and more, to perform a variety of tasks. This exercise will test your ability to apply these methods in combination to solve complex problems and achieve desired outcomes.
+## Project Overview
+This project implements exercises to demonstrate the use of JavaScript higher-order functions for data manipulation and processing. Each exercise includes well-organized and commented solutions using functions like `forEach`, `map`, `filter`, and `reduce`. The goal is to provide declarative, efficient, and readable code that follows best practices, such as using pure functions, avoiding side effects, and ensuring data immutability where appropriate.
 
-The essence of using these higher-order functions is to encourage a declarative approach to programming: you define what you want to achieve (e.g., filter a list, transform data) without having to specify how to perform the operations step-by-step (as you would with imperative loops like for or while). This leads to more readable, concise, and often more maintainable code. Additionally, these functions can help avoid side effects and create pure functions, both key aspects of functional programming.
+## Features
 
-#### Data Sets
-You will work with two primary datasets:
+### Basic Exercises
+- **Iterating and Logging:** Utilizes `forEach` to iterate over arrays and log output.
+- **Transformations with Map:** Applies `map` to transform array elements.
+- **Filtering Data:** Uses `filter` to remove unwanted items based on conditions.
+- **Creating Boolean Arrays:** Uses `map` and `includes` to generate arrays with Boolean values.
+- **Object Mapping with Reduce:** Implements `reduce` to create mappings and aggregated data.
 
-1. A list of provinces:
+### Advanced Exercises
+- **Method Chaining:** Combines multiple array methods for complex data manipulation.
+- **Edge Case Handling:** Properly processes cases with empty or whitespace-only values.
+- **Efficient Calculation:** Converts and calculates data as needed using `reduce`.
+- **Data Immutability:** Maintains data integrity by avoiding direct mutations.
+- **Error Handling:** Ensures proper error management and data validation.
+
+Each function follows a declarative programming style for readability and efficiency. The code avoids side effects and prioritizes clear error handling, making it robust and easy to test.
+
+## Project Setup
+
+### Prerequisites
+To use this project, you’ll need:
+- A web browser with developer console access, or
+- Node.js installed to run JavaScript in a terminal.
+
+### Installation
+1. Clone or download this project to your local machine.
+2. Create three files for organizing the project:
+   - `index.html` (for browser testing)
+   - `scripts.js` (main code)
+   - `test-functions.js` (testing utilities)
+
+### File Structure
+- **`index.html`**: Use this file to load and test the code in the browser console.
+- **`scripts.js`**: This file contains the main logic for each exercise.
+- **`test-functions.js`**: Optional helper file with reusable testing functions to simplify testing specific parts of the project.
+
+## Usage Instructions
+
+### Option 1: Testing in the Browser Console
+1. Open `index.html` in your preferred web browser.
+2. Open the developer console (F12 or right-click → Inspect → Console).
+3. Copy the code from `scripts.js` and paste it into the console, or load it directly in `index.html`.
+4. Run individual exercises or entire sections, using functions provided in `test-functions.js`.
+
+### Option 2: Testing with Node.js
+1. Ensure `Node.js` is installed on your system.
+2. Open a terminal in the project directory.
+3. Run the main script with:
+   ```bash
+   node scripts.js
+   ```
+
+## Testing Exercises
+
+### Basic Tests
+Each exercise’s expected outputs are documented. Examples include:
+
 ```javascript
-const provinces = ['Western Cape', 'Gauteng', 'Northern Cape', 'Eastern Cape', 'KwaZulu-Natal', 'Free State'];
+// Iterating Names with forEach
+names.forEach(name => console.log(name));
+// Expected Output:
+// Ashwin
+// Sibongile
+// Jan-Hendrik
+// Sifso
+// Shailen
+// Frikkie
+
+// Logging Name-Province Pairs
+names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
+// Expected Output:
+// Ashwin (Western Cape)
+// Sibongile (Gauteng)
+// etc.
 ```
-2. A list of names:
+
+### Transformation Tests
 ```javascript
-const names = ['Ashwin', 'Sibongile', 'Jan-Hendrik', 'Sifso', 'Shailen', 'Frikkie'];
+console.log(provinces.map(province => province.toUpperCase()));
+// Expected Output: ['WESTERN CAPE', 'GAUTENG', 'NORTHERN CAPE', ...]
 ```
-3. A list of products with prices:
+
+### Product Price Calculation
 ```javascript
-const products = [
-  { product: 'banana', price: "2" },
-  { product: 'mango', price: 6 },
-  { product: 'potato', price: ' ' },
-  { product: 'avocado', price: "8" },
-  { product: 'coffee', price: 10 },
-  { product: 'tea', price: '' },
-];
+const totalPrice = products
+    .filter(item => item.price !== '4' && item.price !== '7')
+    .reduce((total, item) => total + Number(item.price), 0);
+console.log(totalPrice);
+// Expected Output: Sum of valid prices
 ```
 
-#### Exercises
+### Testing Utilities
+Use `test-functions.js` to test individual exercises or the entire project.
 
-1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
-2. **Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console.
-3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
-4. **Sorting**: Use `sort` to alphabetically sort the provinces. 
-5. **Filtering Cape**: Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
-6. **Finding 'S'**: Create a boolean array using `map` and `some` to determine if a name contains the letter 'S'.
-7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
+```javascript
+// Run a specific test
+testExercise(1, () => { /* code for testing */ });
 
-#### Advanced Exercises (Single `console.log` Execution)
-For these exercises, wrap your logic in a single `console.log` statement:
+// Or test all advanced exercises
+testAdvanced();
+```
 
-1. **Log Products**: Iterate over the products array, logging each product name.
-2. **Filter by Name Length**: Filter out products with names longer than 5 characters.
-3. **Price Manipulation**: Filter out products without prices, convert string prices to numbers, and calculate the total price using `reduce`.
-4. **Concatenate Product Names**: Use `reduce` to concatenate all product names into a single string.
-5. **Find Extremes in Prices**: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
-6. **Object Transformation**: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
+## Expected Outputs
+The console will log results for each exercise, which you can compare against the expected outputs. Error handling is included to help identify and resolve any issues during testing.
 
-#### Submission Guidelines
+### Tips for Effective Testing
+1. Run individual exercises to verify expected behavior.
+2. Modify input data to test edge cases.
+3. Use console filtering to manage output visibility.
+4. Clear the console frequently to maintain clarity.
 
-- Submit the completed JavaScript file(s) containing your solutions.
-- Include comments to explain the logic behind your implementations, especially for the advanced exercises.
-- Prepare to discuss your approach, focusing on the "why" and "how" of your solutions during your assessment with a coach.
+## Additional Support
+If you need further assistance with any exercise, feel free to reach out for explanations or alternative solutions for specific exercises.
 
-#### Evaluation Criteria
-
-- Correct application of JavaScript array methods to solve the given problems.
-- Ability to combine multiple array methods to manipulate and transform data effectively.
-- Code readability and efficiency.
-- Thoughtful commentary and explanation of your solution approach and decision-making process.
-
+Happy coding!
