@@ -1,0 +1,54 @@
+# JavaScript Exercises
+
+This project contains a set of basic and advanced JavaScript exercises that can be used to practice and improve your programming skills.
+
+## Getting Started
+
+To get started, you'll need to have Node.js installed on your machine. Once you have Node.js installed, you can clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/your-username/javascript-exercises.git
+cd javascript-exercises
+npm install
+```
+
+## Running the Exercises
+
+The exercises are organized into two main categories: basic and advanced. You can run the exercises by executing the `index.js` file:
+
+```bash
+node index.js
+```
+
+This will run all the exercises and display the results in the console.
+
+## Basic Exercises
+
+The basic exercises cover the following topics:
+
+1. Looping through arrays using `forEach`
+2. Transforming arrays using `map`
+3. Calculating values using `reduce`
+4. Sorting arrays using `sort`
+5. Filtering arrays using `filter`
+6. Finding elements using `find`
+7. Creating objects using `reduce`
+
+## Advanced Exercises
+
+The advanced exercises cover the following topics:
+
+1. Retrieving product information
+2. Filtering objects by length
+3. Calculating totals
+4. Concatenating object properties
+5. Finding extremes
+6. Transforming objects
+
+## Contributing
+
+If you have any suggestions or ideas for new exercises, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
